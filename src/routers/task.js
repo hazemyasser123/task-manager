@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 
 
 //updating a task
-router.patch('/tasks/:id' ,auth , async (req , res) => {
+router.patch('/tasks/:id' , auth , async (req , res) => {
     const updates = ['completed' , 'description'];
     const ParameterToBeUpdated = Object.keys(req.body);
     const isValidOperation = ParameterToBeUpdated.every((update) => {

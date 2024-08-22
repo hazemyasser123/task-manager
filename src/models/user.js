@@ -62,7 +62,7 @@ userSchema.virtual('tasks' , {
     foreignField : 'owner'
 })
 
-//statics are used on the model itself
+//statics are used on the model itself 'User'
 userSchema.statics.findByCredentials = async (email , password) => {
     const user = await User.findOne({email : email})
     if(!user){
@@ -71,7 +71,6 @@ userSchema.statics.findByCredentials = async (email , password) => {
     const isMatch = await bcrypt.compare(password , user.password)
     if(!isMatch){
         throw new Error("unable to login");
-        
     }
     return user
 }
@@ -87,7 +86,7 @@ userSchema.methods.toJSON = function () {
     return userObject;
 }
 
-//methods are acssesible on instance of the object
+//methods are acssesible on instance of the object 
 userSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = jwt.sign({_id : user._id.toString()} , process.env.JWT_SECRET)
@@ -114,6 +113,18 @@ userSchema.pre('deleteOne' , { document: true, query: false } , async function (
     console.log('Tasks are deleted')
     next()
 })
+
+// userSchema.pre('deleteMany' , { document: true, query: false } , async function (next) {
+//     const users = this;
+//     // await Task.deleteMany({owner : users._id})
+//     // console.log('Tasks are deleted')
+//     // console.log(users)
+//     await users.forEach(async (user) => {
+//         await Task.deleteMany({owner : users._id})
+//     });
+
+//     next()
+// })
 
 const User = mongoose.model('User' ,userSchema)
 

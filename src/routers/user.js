@@ -100,7 +100,7 @@ router.patch('/users/updateme',auth , async (req , res) => {
     }
 })
 
-//Getting all users
+//Getting my profile
 router.get('/users/me' , auth , async (req , res) => {
     
     // try {
@@ -127,6 +127,7 @@ const upload = multer({
 
 
 
+// uploading my avatar
 router.post('/users/me/avatar', auth ,upload.single('avatar') ,async (req , res) => {
     // console.log(req.file)    
     const buffer = await sharp(req.file.buffer).resize({width : 250 , height : 250}).png().toBuffer();
@@ -138,7 +139,7 @@ router.post('/users/me/avatar', auth ,upload.single('avatar') ,async (req , res)
 })
 
 
-
+// deleting my avatar
 router.delete('/users/me/avatar' , auth , async (req , res) => {
     try {
         req.user.avatar = undefined;
@@ -151,6 +152,7 @@ router.delete('/users/me/avatar' , auth , async (req , res) => {
     }
 })
 
+// getting my avatar
 router.get('/users/:id/avatar' , async (req , res) => {
     try {
         const user = await User.findById(req.params.id);

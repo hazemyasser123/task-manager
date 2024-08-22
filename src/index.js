@@ -1,10 +1,23 @@
-const express = require('express');
-require('./db/mongoose')
-const userrouter = require('./routers/user')
-const taskRouter = require('./routers/task')
+const app = require('./app')
 
-const app = express();
+// const express = require('express');
+// require('./db/mongoose')
+// const userrouter = require('./routers/user')
+// const taskRouter = require('./routers/task')
+
+// const app = express();
 const Port = process.env.PORT;
+
+
+
+// app.use(express.json());
+// app.use(userrouter)
+// app.use(taskRouter)
+
+app.listen(Port , () => {
+    console.log("server is up and running on port " + Port)
+    
+})
 
 // app.use((req , res , next) => {
 //     // console.log(req.method , req.path)
@@ -20,17 +33,6 @@ const Port = process.env.PORT;
 // app.use((req , res , next) => {
 //         res.status(503).send("The service is under maintainance")
 // })
-
-
-
-app.use(express.json());
-app.use(userrouter)
-app.use(taskRouter)
-
-app.listen(Port , () => {
-    console.log("server is up and running on port " + Port)
-    
-})
 
 
 
