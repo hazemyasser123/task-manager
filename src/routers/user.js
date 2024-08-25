@@ -59,6 +59,7 @@ router.post('/users/logout' , auth , async (req , res) => {
     }
 })
 
+
 // Deleting a user
 router.delete('/users/deleteme' ,auth , async (req , res) => {
     try {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tasks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <a href="/profile.html"><img src="" alt="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="tasks.html" class="active">Home</a></li>
+                <li><a href="AddTask.html" >Add Task</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li ><a href="/" id="Logoutbtn">Logout</a></li>
+                <li><a href="/" id="LogoutAllbtn">LogoutAll</a></li>
+                <!-- <li id="lg-bag"><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li> -->
+                <a href="#" id="close"><i class="fa fa-window-close"></i></a>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+            <i class="fa-solid fa-bars" id="hamburgermenu" style="cursor: pointer;"></i>
+            <!-- <i class="fa fa-window-close" id="closehamburgermenu"></i> -->
+        </div>
+    </header>
+
+    <!-- <div class="tasks-container" id="tasksContainer">
+       <p><strong>Description:</strong> Join Tccd</p>
+       <p><strong>Completed:</strong> <span id="CompletedText">false</span></p>
+       
+       <div class="btns-dev">
+            <button>Set as completed</button>
+            <button id="Deletebtn">Delete</button>
+        </div>
+    </div> -->
+    <h1>Tasks</h1>
+    <h2>Loading...</h2>
+    <div id="tasksContainer"></div>
+
+    <script type="module"  src="js/tasks.js"></script>
+</body>
+</html>

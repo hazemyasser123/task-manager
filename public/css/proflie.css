@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+header{
+    /* color: red; */
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px 80px;
+    background-color: #e3e6f3;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0 , 0.06);
+    
+    z-index: 999; /* to make the box shadow appear */
+    /* to make the navbar sticky on top */
+    position: sticky; 
+    top: 0;
+    left: 0;
+    /*  */
+}
+
+header img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0px 20px ;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    /* transition: all smooth ; */
+    transition: all 0.3s ease;
+}
+
+#navbar li a:hover , 
+#navbar li a.active{
+    color: #088178;
+}
+#navbar li a:hover::after,
+#navbar li a.active::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile{
+    display: none;
+}
+
+#navbar #closehamburgermenu{
+    display: none;       
+}
+
+#close{
+    display: none;
+}
+
+@media (max-width:799px) {
+    
+    .section-p1{
+        padding: 40px;
+    }
+
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right:  -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #e3e6f3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: all 0.5s ease;
+    }
+
+    #navbar.active{
+        right: 0;
+    }
+
+
+    #navbar li{
+        margin-bottom: 25px;
+    }
+    
+    #mobile{
+        display: flex;
+        align-items: center;
+    }
+    #mobile i{
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close{
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+}
+
+
+h1{
+    text-align: center;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 5px;
+    margin-top: 25px;
+}
+
+
+/* .profile{
+    padding-left: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+ */
+
+ .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+.avatar {
+    border-radius: 9px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.age, .email {
+    color: #555;
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+
+.signup-container {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    text-align: center;
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+}
+
+.signup-container .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container label {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.signup-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.signup-container button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.signup-container button:hover {
+    background-color: #218838;
+}
+
+.signup-container .DelBtn{
+    text-decoration: none;
+    background-color: red;
+    padding: 10px;
+    /* background-color: #28a745; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.signup-container .DelBtn:hover{
+    background-color: rgb(214, 0, 0);
+}
+
+.signup-container h4{
+    margin-bottom:20px;
+} 

@@ -23,7 +23,7 @@ test('should create task for user' , async () => {
     expect(task.completed).toBe(true)
 } )
 
-test('should get all users tasks' , async () => {
+test('should get all user tasks' , async () => {
     const res = await request(app)
     .get('/tasks')
     .set('Authorization' , `Bearer ${userOne.tokens[0].token}`)
@@ -42,4 +42,28 @@ test('should not be able to delete the task' , async () => {
     const task = await Task.findById(taskOne._id)
     expect(task).not.toBeNull()
     // console.log(res)
+})
+
+test('should get a task using id' , async () => {
+    const res = await request(app)
+    .get(`/tasks/${taskOne._id}`)
+    .set('Authorization' , `Bearer ${userOne.tokens[0].token}`)
+    .send()
+    .expect(200)
+    // console.log(res.body)
+    expect(res.body.description).toBe(taskOne.description)
+})
+
+test("should update the completed state of the task" , async () => {
+    const res = await request(app)
+    .patch(`/tasks/${taskOne._id}`)
+    .set('Authorization' , `Bearer ${userOne.tokens[0].token}`)
+    .send({
+        completed : true
+    })
+    .expect(200)
+
+    const task = await Task.findById(taskOne._id)
+
+    expect(task.completed).toBe(true)
 })

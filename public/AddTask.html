@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Addtask.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <a href="/profile.html"><img src="" alt="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="tasks.html" >Home</a></li>
+                <li><a href="AddTask.html" class="active">Add Task</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li ><a href="/" id="Logoutbtn">Logout</a></li>
+                <li><a href="/" id="LogoutAllbtn">LogoutAll</a></li>
+                <!-- <li id="lg-bag"><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li> -->
+                <a href="#" id="close"><i class="fa fa-window-close"></i></a>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+            <i class="fa-solid fa-bars" id="hamburgermenu" style="cursor: pointer;"></i>
+            <!-- <i class="fa fa-window-close" id="closehamburgermenu"></i> -->
+        </div>
+    </header>
+
+
+    <h1>Add new Task</h1>
+    <form id="taskForm">
+        <div>
+            <label for="Description">Description:</label>
+            <input id="Description" name="Description" type="text" required>
+        </div>
+        <div>
+            <label for="Completed">Completed:</label>
+            <select id="Completed" name="Completed">
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
+        <button type="submit">Add Task</button>
+    </form>
+   
+
+    <script type="module"  src="js/Addtask.js"></script>
+</body>
+</html>

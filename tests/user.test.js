@@ -5,6 +5,7 @@ const User = require('../src/models/user.js')
 const mongoose = require('mongoose');
 const {userOneId,userOne ,setupDB} = require('./fixtures/db.js')
 
+
 // const userOneId = new mongoose.Types.ObjectId();
 
 // const userOne = {
@@ -48,6 +49,23 @@ test('Should signup a new user', async () => {
 
     expect(user.password).not.toBe('MyPass777!')
 
+})
+
+test("this should logout the user" , async () => {
+    const user = await User.findById(userOne._id)
+    expect(user).not.toBeNull();
+    
+    const res = await request(app)
+    .post('/users/logout')
+    .set('Authorization' , `Bearer ${userOne.tokens[0].token}`)
+    .send()
+    .expect(200)
+
+    const Checkinguser = await User.findById(userOne._id)
+    expect(user).not.toBeNull();
+    const LeavingToken = Checkinguser.tokens[0];
+    console.log(LeavingToken)
+    expect(LeavingToken).toBe(undefined)
 })
 
 test('should login existing user' , async () => {
@@ -139,6 +157,6 @@ test("this will not update the data" , async () => {
     await request(app)
     .patch('/users/updateme')
     .set('Authorization' , `Bearer ${userOne.tokens[0].token}`)
-    .send({location : 'wenta malak'})
+    .send({location : 'cairo'})
     .expect(400)
 })
